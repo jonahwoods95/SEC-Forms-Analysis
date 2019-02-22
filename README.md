@@ -27,20 +27,22 @@ Running 'python Parse_SEC_Forms.py' in any python enabled shell will start the c
 The output will be a frequency distribution of the first 50 forms. 
 More forms than this will cause a memory error for systems with 16Gb of RAM.
 
-The following is a print out of the output
-\nRank       Lemma                Raw Count
-1          form                 2168
-2          security             1701
-3          -pron-               1628
-4          information          1537
-5          item                 1368
-...        ...                  ...
-45         respect              366
-46         business             361
-47         asset                352
-48         requirement          349
-49         make                 340
-50         dealer               335
+The following is a sample of the output
+
+| Rank     | Lemma              | Raw Count |
+| -------- | ------------------ | --------- |
+| 1        | form               | 2168
+| 2        | security           | 1701
+| 3        | -pron-             | 1628
+| 4        | information        | 1537
+| 5        | item               | 1368
+|...       |...                 |...
+| 45       | respect            | 366
+| 46       | business           | 361
+| 47       | asset              | 352
+| 48       | requirement        | 349
+| 49       | make               | 340
+| 50       | dealer             | 335
 
 
 
