@@ -28,7 +28,7 @@ The output will be a frequency distribution of the first 50 forms.
 More forms than this will cause a memory error for systems with 16Gb of RAM.
 
 The following is a print out of the output
-Rank       Lemma                Raw Count
+\nRank       Lemma                Raw Count
 1          form                 2168
 2          security             1701
 3          -pron-               1628
