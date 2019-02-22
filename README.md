@@ -2,9 +2,9 @@
 
 Project aims to parse and analyze the text of SEC financial regulation forms.
 These types of formal documents are lengthyThere are three import parts to this project.
-  * 1) Scraping of SEC PDF Forms from their website.
-  * 2) Converting the PDFs to text.
-  * 3) Analyzing the text for patterns and actionable items.
+  1) Scraping of SEC PDF Forms from their website.
+  2) Converting the PDFs to text.
+  3) Analyzing the text for patterns and actionable items.
 Actionable here means that a company can implement this particular phrase into a policy
 
 ## Getting Started
@@ -15,11 +15,11 @@ See deployment for notes on how to deploy the project on a live system.
 ### Prerequisites
 
 A standard Python environment needs the following packages installed
-  *1) spacy
-  *2) pdfMiner.six
-  *3) nltk
-  *4) urllib3
-  *5) pandas
+  * spacy
+  * pdfMiner.six
+  * nltk
+  * urllib3
+  * pandas
 
 ### Installing
 
