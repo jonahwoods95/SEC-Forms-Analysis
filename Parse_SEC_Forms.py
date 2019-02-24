@@ -24,28 +24,28 @@ def clean_text(text):
     return clean_forms
 
 
-def run_nlp(forms, num_forms=50):
+def run_nlp(forms, num_forms=10):
     '''Runs spaCy natural language processing on all forms
     as one text file.
 
     Keyword arguments:
     forms -- forms as text files to be parsed
     num_forms -- number of forms to be included in spaCy nlp parser (default=50)
-        -> more that 50 consumes approximately 30Gb of space.
+        -> more that 30 consumes approximately 10Gb of space.
     '''
 
-    print('\n\n\nRunning natural language processing using spaCy...')
-    print('This will take a while (up to 10 minutes)...\n\n\n')
-
-    #join the files together
     #spaCy takes too much memory to run nlp on all forms at once
-    #we can only run nlp on 50 with a reason amount of memory
-    all_text = ''.join(forms[:num_forms])
-
+    #we can only run nlp on 30 with a reason amount of memory
+    
     txt_file_name = "all_text_file"
-
     #if file exists, do not rewrite the file
-    if not os.path.isfile(txt_file_name):
+    #this way we can save the file and don't have to keep creating it
+    if os.path.isfile(txt_file_name):
+        all_text = open(txt_file_name, 'r').read()
+        print('all_text_file_found')
+    else:
+        #join the forms together
+        all_text = ''.join(forms[:num_forms])
         file = open(txt_file_name, 'w')
         file.write(all_text)
 
@@ -57,25 +57,27 @@ def run_nlp(forms, num_forms=50):
     #if spacy hasn't parsed text,
     #then parse the text
     if not os.path.isfile('nlp_all_text'):
-        print('Text has already been parsed')
+        print('\n\n\nRunning natural language processing using spaCy...')
+        print('This will take a while (up to 10 minutes)...\n\n\n')
         parsed_text = nlp(all_text)
         parsed_text.to_disk('nlp_all_text')
 
     #if spacy has parsed text,
     #then only need to read the file on disk
     else:
+        print('Text has already been parsed')
         parsed_text = spacy.tokens.Doc(nlp.vocab).from_disk('nlp_all_text')
 
     return parsed_text
 
-def print_freq_table(parsed_text, num_top_words=50):
+def print_freq_table(parsed_text, num_top_words=30):
     '''Prints a frequency table from the given spaCy parsed text
 
     Keyword arguments:
     parsed_text -- spaCy parsed text
     num_top_words -- number of words to include in frequency distribution(default=50)
     '''
-
+    
     #use nltk stopwords to skip over
     nltk.download('stopwords')
     stop = set(stopwords.words('english'))
@@ -88,7 +90,6 @@ def print_freq_table(parsed_text, num_top_words=50):
         '''
         freq_table = Counter()
         for token in p_text:
-            print(token.lemma_.lower())
             lemma = token.lemma_.lower()
             if not (lemma in stop_list or token.pos_ == 'PUNCT' or token.pos_ == 'SPACE' or len(token)<length):
                 freq_table[lemma] += 1
@@ -119,4 +120,4 @@ def main():
     print_freq_table(parsed_text)
 
 if __name__ == "__main__":
-   main()
+    main()
