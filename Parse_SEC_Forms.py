@@ -15,6 +15,12 @@ import SEC_Forms_to_Text
 Parse_SEC_Forms.main() requires that a set of text files are located in text_forms directory.
 Goal is to analyze text for patterns and predict actionable items within the forms.
 "Actionable" here describes goals, processes, requirements, etc. for a company to implement.
+
+We are using spaCy nlp to process the words and look for verbs. The process takes a while
+and may need to be updated to a faster process for finding verbs.
+
+Another option would be to use CountVectorizer to simply find the words with the highest frequency counts,
+and manually look through the list for words that are pertinent for "actionable" items.
 '''
 
 def clean_text(text):
