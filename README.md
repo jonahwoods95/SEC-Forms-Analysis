@@ -1,7 +1,8 @@
 # SEC Form Web Scrape and Text Analysis
 
-Project aims to parse and analyze the text of SEC financial regulation forms.
-These types of formal documents are lengthyThere are three import parts to this project.
+Project aims to parse and analyze the text of SEC financial regulation forms. These types of formal documents are lengthy and labor intensive. The aim of this project is to gather meaningful insight from the forms using some data analysis techniques.
+
+There are three important parts to this project.
   1) Scraping of SEC PDF Forms from their website.
   2) Converting the PDFs to text.
   3) Analyzing the text for patterns and actionable items.
